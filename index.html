@@ -748,6 +748,113 @@ body {
     .branches-inner { gap: 24px; }
     .branch-divider { display: none; }
   }
+
+
+  /* SITE LOADER */
+#site-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #1a0a0f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: opacity 0.7s ease, visibility 0.7s ease;
+}
+#site-loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.loader-ring {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  margin-bottom: 28px;
+}
+.loader-ring svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.loader-ring-fill {
+  transform-origin: center;
+  transform: rotate(-90deg);
+  animation: loaderRing 2.6s cubic-bezier(.4,0,.2,1) forwards;
+}
+@keyframes loaderRing {
+  to { stroke-dashoffset: 0; }
+}
+.loader-logo-wrap {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: loaderLogoPulse 3s ease-in-out infinite;
+}
+.loader-logo-img {
+  width: 130px;
+  height: 130px;
+  object-fit: contain;
+  border-radius: 50%;
+  /* trims the black bg from the photo edges */
+  mix-blend-mode: lighten;
+}
+@keyframes loaderLogoPulse {
+  0%,100% { transform: scale(1);    filter: drop-shadow(0 0 8px rgba(201,169,110,0.3)); }
+  50%      { transform: scale(1.05); filter: drop-shadow(0 0 18px rgba(201,169,110,0.6)); }
+}
+.loader-sub {
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  letter-spacing: 5px;
+  color: rgba(253,246,240,0.4);
+  text-transform: uppercase;
+  animation: loaderFadeUp 0.8s 0.5s both;
+  margin-bottom: 28px;
+}
+@keyframes loaderFadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.loader-dots {
+  display: flex;
+  gap: 8px;
+  animation: loaderFadeUp 0.8s 0.7s both;
+}
+.loader-dots span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #c8365a;
+  animation: loaderDot 1.2s ease-in-out infinite;
+}
+.loader-dots span:nth-child(1) { animation-delay: 0s;   opacity: 0.5; }
+.loader-dots span:nth-child(2) { animation-delay: 0.2s; }
+.loader-dots span:nth-child(3) { animation-delay: 0.4s; opacity: 0.5; }
+@keyframes loaderDot {
+  0%,100% { transform: scale(1);   opacity: 0.5; }
+  50%      { transform: scale(1.6); opacity: 1; }
+}
+.loader-petal {
+  position: absolute;
+  bottom: -30px;
+  font-size: 18px;
+  opacity: 0;
+  animation: loaderPetalFloat linear infinite;
+  pointer-events: none;
+}
+@keyframes loaderPetalFloat {
+  0%   { transform: translateY(0) rotate(0deg);    opacity: 0; }
+  10%  { opacity: 0.12; }
+  90%  { opacity: 0.12; }
+  100% { transform: translateY(-110vh) rotate(400deg); opacity: 0; }
+}
+
 </style>
 
 
@@ -761,6 +868,29 @@ body {
 
 </head>
 <body>
+
+<!-- LOADING SCREEN -->
+<div id="site-loader">
+  <div class="loader-ring">
+    <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="80" cy="80" r="74" fill="none" stroke="rgba(200,54,90,0.15)" stroke-width="2.5"/>
+      <circle class="loader-ring-fill" cx="80" cy="80" r="74" fill="none" stroke="#c9a96e" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="464.96" stroke-dashoffset="464.96"/>
+    </svg>
+    <div class="loader-logo-wrap">
+      <img src="logoo.png" alt="Rose Beauty Parlour" class="loader-logo-img">
+    </div>
+  </div>
+  <div class="loader-sub">Loading Background...</div>
+  <div class="loader-dots">
+    <span></span><span></span><span></span>
+  </div>
+  <div class="loader-petal" style="left:8%;animation-duration:8s;animation-delay:0s">🌸</div>
+  <div class="loader-petal" style="left:28%;animation-duration:10s;animation-delay:1.2s">🌸</div>
+  <div class="loader-petal" style="left:54%;animation-duration:7s;animation-delay:0.5s">🌹</div>
+  <div class="loader-petal" style="left:74%;animation-duration:9s;animation-delay:2s">🌸</div>
+  <div class="loader-petal" style="left:90%;animation-duration:8.5s;animation-delay:1s">🌹</div>
+</div>
+
 
 <!-- NAV -->
 <nav>
@@ -855,13 +985,67 @@ body {
   <div class="product-3d-zone reveal" id="tiltZone">
     <div class="glow-orb"></div>
     <div class="product-card-3d pc1" id="tilt1">
-      <img src="41231d230adfd26ae5b4a3fa43a1c89d.jpg" alt="Beauty product">
+      <img src="logo.jpeg" alt="Beauty product">
     </div>
     <div class="product-card-3d pc2" id="tilt2">
-      <img src="8495dcda6d393ddef889de086ace03be.jpg" alt="Beauty tools">
+      <img src="WhatsApp Image 2026-05-30 at 11.28.48 PM.jpeg" alt="Beauty tools">
     </div>
   </div>
 </section>
+
+<!-- GALLERY-->
+<section class="gallery-section">
+
+  <div class="gallery-header" id="gallery">
+    <p class="section-tag">Our New Work Space</p>
+    <h2 class="section-title">
+      Parlour <em>Gallery</em>
+    </h2>
+  </div>
+
+  <div class="swiper gallery-swiper">
+
+    <div class="swiper-wrapper">
+
+      <div class="swiper-slide">
+        <img src="main int.jpeg">
+      </div>
+
+      <div class="swiper-slide">
+        <img src="logo.jpeg">
+      </div>
+
+      
+
+      <div class="swiper-slide">
+        <img src="mirror main.jpeg">
+      </div>
+
+      <div class="swiper-slide">
+        <img src="in1.jpeg">
+      </div>
+
+      <div class="swiper-slide">
+        <img src="hydra.jpeg">
+      </div>
+
+      <div class="swiper-slide">
+        <img src="hex.jpeg">
+      </div>
+
+      <div class="swiper-slide">
+        <img src="chandelier.jpeg">
+      </div>
+
+    </div>
+
+    <div class="swiper-pagination"></div>
+
+  </div>
+
+</section>
+
+
 
 <!-- SERVICES -->
 <section class="services" id="services">
@@ -945,7 +1129,7 @@ body {
   <div class="scene-3d reveal">
     <div class="fi-glow"></div>
     <div class="float-img fi1">
-      <img src="WhatsApp Image 2026-05-30 at 11.28.48 PM.jpeg" alt="Our work">
+      <img src="in1.jpeg" alt="Our work">
     </div>
     <div class="float-img fi2">
       <img src="3V4A8205.JPG" alt="Studio">
@@ -966,51 +1150,7 @@ body {
   </div>
 </section>
 
-<!-- GALLERY-->
-<section class="gallery-section">
 
-  <div class="gallery-header" id="gallery">
-    <p class="section-tag">Our New Work Space</p>
-    <h2 class="section-title">
-      Parlour <em>Gallery</em>
-    </h2>
-  </div>
-
-  <div class="swiper gallery-swiper">
-
-    <div class="swiper-wrapper">
-
-      <div class="swiper-slide">
-        <img src="e5239525ef901b2e602430acbf220366.jpg">
-      </div>
-
-      <div class="swiper-slide">
-        <img src="e5239525ef901b2e602430acbf220366 copy.jpg">
-      </div>
-
-      <div class="swiper-slide">
-        <img src="d6bd2c0dab7d81cf0a7d80e3847c4f6b.jpg">
-      </div>
-
-      <div class="swiper-slide">
-        <img src="41231d230adfd26ae5b4a3fa43a1c89d.jpg">
-      </div>
-
-      <div class="swiper-slide">
-        <img src="9555e062724cc2ca83f0cb3e6b38c586.jpg">
-      </div>
-
-      <div class="swiper-slide">
-        <img src="8495dcda6d393ddef889de086ace03be.jpg">
-      </div>
-
-    </div>
-
-    <div class="swiper-pagination"></div>
-
-  </div>
-
-</section>
 
 <!-- BOOKING -->
 <section class="booking" id="booking">
@@ -1066,6 +1206,8 @@ body {
     </div>
   </div>
 </section>
+
+
 
 <!-- FOOTER -->
 <footer>
@@ -1239,6 +1381,33 @@ function sendToWhatsApp(){
     `\n`;
   window.open(`https://wa.me/919539229843?text=${encodeURIComponent(msg)}`,'_blank');
 }
+
+// LOADER — hides once video is ready OR after 3s minimum
+(function() {
+  const loader = document.getElementById('site-loader');
+  const video  = document.querySelector('.hero-video');
+  let minDone  = false;
+  let vidReady = false;
+
+  function tryHide() {
+    if (minDone && vidReady) loader.classList.add('hidden');
+  }
+
+  // Minimum display time: 1.8s (so animation plays fully)
+  setTimeout(() => { minDone = true; tryHide(); }, 1800);
+
+  // Hard fallback: hide after 4s no matter what
+  setTimeout(() => loader.classList.add('hidden'), 4000);
+
+  if (video) {
+    video.addEventListener('canplaythrough', () => { vidReady = true; tryHide(); });
+    // If video already buffered before JS ran
+    if (video.readyState >= 3) { vidReady = true; tryHide(); }
+  } else {
+    vidReady = true;
+  }
+})();
+
 </script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
