@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rose Beauty Parlour</title>
+<!-- Preload video at highest browser priority so it's ready before page renders -->
+<link rel="preload" href="Animate_photo_smoke_rotates_spreads_202606011944.mp4" as="video" type="video/mp4">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -1192,25 +1194,27 @@ function sendToWhatsApp(){
   window.open(`https://wa.me/919539229843?text=${encodeURIComponent(msg)}`,'_blank');
 }
 
-// LOADER
+// LOADER — hides as soon as video can play (no artificial minimum wait)
 (function() {
   const loader = document.getElementById('site-loader');
   const video  = document.querySelector('.hero-video');
-  let minDone  = false;
-  let vidReady = false;
 
-  function tryHide() {
-    if (minDone && vidReady) loader.classList.add('hidden');
+  function hideLoader() {
+    loader.classList.add('hidden');
   }
 
-  setTimeout(() => { minDone = true; tryHide(); }, 1800);
-  setTimeout(() => loader.classList.add('hidden'), 4000);
+  // Hard fallback: hide after 2.5s no matter what (slow connections)
+  const fallback = setTimeout(hideLoader, 2500);
 
   if (video) {
-    video.addEventListener('canplaythrough', () => { vidReady = true; tryHide(); });
-    if (video.readyState >= 3) { vidReady = true; tryHide(); }
+    // canplay fires as soon as browser has enough data to start — much earlier than canplaythrough
+    const onReady = () => { clearTimeout(fallback); hideLoader(); };
+    video.addEventListener('canplay', onReady, { once: true });
+    // Already buffered before JS ran
+    if (video.readyState >= 2) { clearTimeout(fallback); hideLoader(); }
   } else {
-    vidReady = true;
+    clearTimeout(fallback);
+    hideLoader();
   }
 })();
 </script>
