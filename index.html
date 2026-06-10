@@ -20,7 +20,6 @@
     position: absolute;
     inset: 0;
     z-index: 0;
-    /* poster: one of the existing images, shows while video loads */
     background: #2a0f18 url('41231d230adfd26ae5b4a3fa43a1c89d.jpg') center/cover no-repeat;
 }
 
@@ -31,15 +30,9 @@
     height: 100%;
     object-fit: cover;
     z-index: 1;
-    /* brighter: was 0.45 */
     filter: brightness(0.62);
     will-change: transform;
 }
-
-/* mobile responsiveness */
-/* =====================================
-   MOBILE RESPONSIVE FIXES
-===================================== */
 
 html,
 body {
@@ -50,7 +43,6 @@ body {
 /* Mobile */
 @media (max-width: 768px) {
 
-  /* Global */
   section,
   div,
   footer,
@@ -58,7 +50,6 @@ body {
     max-width: 100%;
   }
 
-  /* Navbar */
   nav {
     padding: 16px;
   }
@@ -68,7 +59,6 @@ body {
     letter-spacing: 2px;
   }
 
-  /* Hero */
   .hero {
     min-height: 100vh;
   }
@@ -94,7 +84,6 @@ body {
     max-width: 280px;
   }
 
-  /* Intro */
   .intro {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -110,7 +99,6 @@ body {
     gap: 24px;
   }
 
-  /* 3D Product Section */
   .product-3d-zone {
     height: 350px;
   }
@@ -133,7 +121,6 @@ body {
     height: 180px;
   }
 
-  /* Services */
   .services {
     padding: 60px 20px;
   }
@@ -150,7 +137,6 @@ body {
     font-size: 24px;
   }
 
-  /* Branches */
   .branches-banner {
     padding: 16px;
   }
@@ -165,7 +151,6 @@ body {
     width: 100%;
   }
 
-  /* Float Products */
   .float-products {
     grid-template-columns: 1fr;
     padding: 60px 20px;
@@ -187,81 +172,20 @@ body {
     font-size: 36px;
   }
 
-  
-  
-/* =========================
-   LUXURY GALLERY
-========================= 
-.gallery-header{
-    width:100%;
-    text-align:center;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    margin:0 auto 60px;
-}
-
-.gallery-header .section-tag{
-    text-align:center;
-}
-
-.gallery-header .section-title{
-    text-align:center;
-}
-.gallery-swiper{
-  width:100%;
-  padding:50px 0 100px;
-}
-
-.gallery-swiper .swiper-slide{
-  width:450px;
-  height:600px;
-  border-radius:24px;
-  overflow:hidden;
-  transform:scale(.8);
-  transition:all .5s ease;
-  box-shadow:0 30px 80px rgba(0,0,0,.5);
-}
-
-.gallery-swiper .swiper-slide img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-.gallery-swiper .swiper-slide-active{
-  transform:scale(1.08);
-}
-
-.gallery-swiper .swiper-slide-prev,
-.gallery-swiper .swiper-slide-next{
-  transform:scale(.9);
-  opacity:.8;
-}*/
-
-/* Tablet */
 @media (max-width:1024px){
-
   .gallery-swiper .swiper-slide{
     width:350px;
     height:500px;
   }
+}
 
-} 
-
-/* Mobile */
 @media (max-width:768px){
-
   .gallery-swiper .swiper-slide{
     width:260px;
     height:360px;
   }
-
 }
 
-
-  /* Booking */
   .booking {
     padding: 80px 20px;
   }
@@ -275,7 +199,6 @@ body {
     grid-column: span 1;
   }
 
-  /* Footer */
   footer {
     padding: 60px 20px 30px;
   }
@@ -290,7 +213,6 @@ body {
     text-align: center;
   }
 
-  /* WhatsApp Button */
   .floating-wa {
     right: 12px;
     bottom: 12px;
@@ -310,7 +232,6 @@ body {
     display: none;
   }
 
-  /* Parallax */
   .parallax-content blockquote {
     font-size: 28px;
   }
@@ -396,18 +317,6 @@ body {
   .btn-primary:hover { background: #a82848; transform: translateY(-2px); }
   .btn-ghost { font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; padding: 16px 40px; background: transparent; border: 1px solid rgba(253,246,240,.4); color: var(--cream); cursor: pointer; transition: all .3s; }
   .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
-  .scroll-hint { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 10px; animation: fadeIn 2s 1.5s both; }
-  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-  .scroll-hint span { font-size: 9px; letter-spacing: 4px; color: rgba(253,246,240,.4); }
-  .scroll-line { width: 1px; height: 60px; background: linear-gradient(to bottom, var(--gold), transparent); animation: scrollLine 2s infinite; }
-  @keyframes scrollLine { 0% { transform: scaleY(0); transform-origin: top; } 50% { transform: scaleY(1); transform-origin: top; } 51% { transform: scaleY(1); transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
-
-  /* MARQUEE */
-  .marquee-bar { background: var(--rose); padding: 14px 0; overflow: hidden; border-top: 1px solid rgba(255,255,255,.1); border-bottom: 1px solid rgba(255,255,255,.1); }
-  .marquee-inner { display: flex; gap: 60px; white-space: nowrap; animation: marquee 20s linear infinite; }
-  @keyframes marquee { to { transform: translateX(-50%); } }
-  .marquee-item { font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: rgba(255,255,255,.85); display: flex; align-items: center; gap: 20px; }
-  .marquee-dot { width: 4px; height: 4px; background: rgba(255,255,255,.5); border-radius: 50%; }
 
   /* BRANCHES BANNER */
   .branches-banner { background: rgba(200,54,90,.08); border-bottom: 1px solid rgba(200,54,90,.2); padding: 20px 60px; }
@@ -521,48 +430,35 @@ body {
   opacity:.55;
 }
 
-/* Large Desktop */
 @media (min-width:1400px){
-
   .gallery-swiper .swiper-slide{
     width:600px;
     height:750px;
   }
-
 }
 
-/* Laptop */
 @media (max-width:1200px){
-
   .gallery-swiper .swiper-slide{
     width:420px;
     height:550px;
   }
-
 }
 
-/* Tablet */
 @media (max-width:1024px){
-
   .gallery-swiper .swiper-slide{
     width:350px;
     height:500px;
   }
-
 }
 
-/* Mobile */
 @media (max-width:768px){
-
   .gallery-section{
     padding:80px 0;
   }
-
   .gallery-swiper .swiper-slide{
     width:260px;
     height:360px;
   }
-
 }
 
 
@@ -667,14 +563,11 @@ body {
 
 
 /* FOOTER mobile */
-
   @media (max-width: 768px) {
-
   footer {
     padding: 60px 20px 30px;
     text-align: center;
   }
-
   .footer-top {
     display: flex;
     flex-direction: column;
@@ -682,33 +575,26 @@ body {
     gap: 40px;
     text-align: center;
   }
-
   .footer-brand {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-
   .footer-brand p {
     max-width: 100%;
   }
-
   .footer-col {
     width: 100%;
   }
-
   .footer-col ul {
     padding: 0;
   }
-
   .footer-col a {
     justify-content: center;
   }
-
   .footer-socials {
     justify-content: center;
   }
-
   .footer-bottom {
     flex-direction: column;
     align-items: center;
@@ -797,11 +683,10 @@ body {
   animation: loaderLogoPulse 3s ease-in-out infinite;
 }
 .loader-logo-img {
-  width: 130px;
-  height: 130px;
+  width: 230px;
+  height: 230px;
   object-fit: contain;
   border-radius: 50%;
-  /* trims the black bg from the photo edges */
   mix-blend-mode: lighten;
 }
 @keyframes loaderLogoPulse {
@@ -857,14 +742,7 @@ body {
 
 </style>
 
-
-
-
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-/>
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
 </head>
 <body>
@@ -877,7 +755,7 @@ body {
       <circle class="loader-ring-fill" cx="80" cy="80" r="74" fill="none" stroke="#c9a96e" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="464.96" stroke-dashoffset="464.96"/>
     </svg>
     <div class="loader-logo-wrap">
-      <img src="logoo.png" alt="Rose Beauty Parlour" class="loader-logo-img">
+      <img src="logoo.svg" alt="Rose Beauty Parlour" class="loader-logo-img">
     </div>
   </div>
   <div class="loader-sub">Loading Background...</div>
@@ -933,16 +811,7 @@ body {
       <button class="btn-ghost" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Explore Services</button>
     </div>
   </div>
-  <div class="scroll-hint">
-    <span>Scroll</span>
-    <div class="scroll-line"></div>
-  </div>
 </section>
-
-<!-- MARQUEE -->
-<div class="marquee-bar">
-  <div class="marquee-inner" id="marqueeInner"></div>
-</div>
 
 <!-- BRANCHES BANNER -->
 <div class="branches-banner">
@@ -1004,48 +873,19 @@ body {
   </div>
 
   <div class="swiper gallery-swiper">
-
     <div class="swiper-wrapper">
-
-      <div class="swiper-slide">
-        <img src="main int.jpeg">
-      </div>
-
-      <div class="swiper-slide">
-        <img src="logo.jpeg">
-      </div>
-
-      
-
-      <div class="swiper-slide">
-        <img src="mirror main.jpeg">
-      </div>
-
-      <div class="swiper-slide">
-        <img src="in1.jpeg">
-      </div>
-
-      <div class="swiper-slide">
-        <img src="hydra.jpeg">
-      </div>
-
-      <div class="swiper-slide">
-        <img src="hex.jpeg">
-      </div>
-
-      <div class="swiper-slide">
-        <img src="chandelier.jpeg">
-      </div>
-
+      <div class="swiper-slide"><img src="main int.jpeg"></div>
+      <div class="swiper-slide"><img src="logo.jpeg"></div>
+      <div class="swiper-slide"><img src="mirror main.jpeg"></div>
+      <div class="swiper-slide"><img src="in1.jpeg"></div>
+      <div class="swiper-slide"><img src="hydra.jpeg"></div>
+      <div class="swiper-slide"><img src="hex.jpeg"></div>
+      <div class="swiper-slide"><img src="chandelier.jpeg"></div>
     </div>
-
     <div class="swiper-pagination"></div>
-
   </div>
 
 </section>
-
-
 
 <!-- SERVICES -->
 <section class="services" id="services">
@@ -1061,7 +901,7 @@ body {
         <p class="service-num">01 —</p>
         <h3 class="service-name">Facials</h3>
         <p class="service-desc">Custom skin treatments and precision care. From deep cleansing to brightening glow facials tailored for your skin.</p>
-        </div>
+      </div>
     </div>
     <div class="service-card reveal" id="threading" style="transition-delay:.15s">
       <img src="7ad6e2dc7d1373804da847f22d3345f4.jpg" alt="Eyebrow Threading">
@@ -1070,7 +910,6 @@ body {
         <p class="service-num">02 —</p>
         <h3 class="service-name">Eyebrow Threading</h3>
         <p class="service-desc">Perfectly shaped brows crafted with precision threading. Define, arch, and frame your face beautifully.</p>
-       
       </div>
     </div>
     <div class="service-card reveal" id="hairstyling" style="transition-delay:.3s">
@@ -1080,7 +919,6 @@ body {
         <p class="service-num">03 —</p>
         <h3 class="service-name">Hair Care and Styling</h3>
         <p class="service-desc">From precision haircuts and nourishing hair spa treatments to smoothening, coloring, and styling, we provide complete hair care solutions for healthy, beautiful hair.</p>
-        
       </div>
     </div>
     <div class="service-card reveal" id="makeover" style="transition-delay:.1s">
@@ -1090,7 +928,6 @@ body {
         <p class="service-num">04 —</p>
         <h3 class="service-name">Bridal and Guest Makeover</h3>
         <p class="service-desc">Elegant bridal and guest makeovers tailored to enhance your beauty for every special occasion.</p>
-        
       </div>
     </div>
     <div class="service-card reveal" id="waxing" style="transition-delay:.25s">
@@ -1100,7 +937,6 @@ body {
         <p class="service-num">05 —</p>
         <h3 class="service-name">Waxing</h3>
         <p class="service-desc">Smooth, long-lasting results with our premium waxing services. Gentle on skin, effective every time.</p>
-        
       </div>
     </div>
     <div class="service-card reveal" id="mani-pedi" style="transition-delay:.4s">
@@ -1110,7 +946,6 @@ body {
         <p class="service-num">06 —</p>
         <h3 class="service-name">Pedicure &amp; Manicure</h3>
         <p class="service-desc">Luxurious nail care that pampers and perfects. Nourish, shape, and beautify hands and feet.</p>
-        
       </div>
     </div>
   </div>
@@ -1149,8 +984,6 @@ body {
     <button class="btn-primary" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Book an Appointment</button>
   </div>
 </section>
-
-
 
 <!-- BOOKING -->
 <section class="booking" id="booking">
@@ -1207,8 +1040,6 @@ body {
   </div>
 </section>
 
-
-
 <!-- FOOTER -->
 <footer>
   <div class="footer-top">
@@ -1232,14 +1063,14 @@ body {
     </div>
     <div class="footer-col">
       <h4>Services</h4>
-     <ul>
-  <li><a href="#facials">Facials</a></li>
-  <li><a href="#threading">Eyebrow Threading</a></li>
-  <li><a href="#hairstyling">Hair Styling</a></li>
-  <li><a href="#makeover">Bridal and Guest Makeover</a></li>
-  <li><a href="#waxing">Waxing</a></li>
-  <li><a href="#mani-pedi">Pedicure &amp; Manicure</a></li>
-</ul>
+      <ul>
+        <li><a href="#facials">Facials</a></li>
+        <li><a href="#threading">Eyebrow Threading</a></li>
+        <li><a href="#hairstyling">Hair Styling</a></li>
+        <li><a href="#makeover">Bridal and Guest Makeover</a></li>
+        <li><a href="#waxing">Waxing</a></li>
+        <li><a href="#mani-pedi">Pedicure &amp; Manicure</a></li>
+      </ul>
     </div>
     <div class="footer-col">
       <h4>Branches</h4>
@@ -1303,12 +1134,7 @@ body {
 </div>
 
 <script>
-setTimeout(() => document.getElementById('heroBg').classList.add('loaded'), 200);
-
-const items = ['Facials','Hair Styling','Eyebrow Threading','Hair Cut','Waxing','Pedicure & Manicure','Bridal Packages','Rose Beauty Parlour'];
-const mi = document.getElementById('marqueeInner');
-const doubled = [...items,...items,...items,...items];
-mi.innerHTML = doubled.map(t=>`<span class="marquee-item">${t}<span class="marquee-dot"></span></span>`).join('');
+setTimeout(() => document.getElementById('heroBg') && document.getElementById('heroBg').classList.add('loaded'), 200);
 
 const observer = new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
@@ -1320,7 +1146,9 @@ window.addEventListener('scroll',()=>{
   if(!img)return;
   const section=document.getElementById('parallaxBanner');
   const rect=section.getBoundingClientRect();
-  img.style.transform=`translateY(${rect.top*0.3}px)`;
+  if (window.innerWidth > 768) {
+    img.style.transform=`translateY(${rect.top*0.3}px)`;
+  }
 });
 
 const tiltZone=document.getElementById('tiltZone');
@@ -1350,24 +1178,6 @@ function sendToWhatsApp(){
     alert('Please fill in Name, Phone, Branch, and Service before submitting.');
     return;
   }
-
-  if (window.innerWidth > 768) {
-  window.addEventListener('scroll', () => {
-    const img = document.getElementById('parallaxImg');
-    if (!img) return;
-
-    const section = document.getElementById('parallaxBanner');
-    const rect = section.getBoundingClientRect();
-
-    img.style.transform = `translateY(${rect.top * 0.3}px)`;
-  });
-}
-
-/* Gallery */
-
-
-
-  
   const msg=
     `🌹 *New Appointment Request*\n`+
     `*Rose Beauty Parlour*\n\n`+
@@ -1382,7 +1192,7 @@ function sendToWhatsApp(){
   window.open(`https://wa.me/919539229843?text=${encodeURIComponent(msg)}`,'_blank');
 }
 
-// LOADER — hides once video is ready OR after 3s minimum
+// LOADER
 (function() {
   const loader = document.getElementById('site-loader');
   const video  = document.querySelector('.hero-video');
@@ -1393,40 +1203,30 @@ function sendToWhatsApp(){
     if (minDone && vidReady) loader.classList.add('hidden');
   }
 
-  // Minimum display time: 1.8s (so animation plays fully)
   setTimeout(() => { minDone = true; tryHide(); }, 1800);
-
-  // Hard fallback: hide after 4s no matter what
   setTimeout(() => loader.classList.add('hidden'), 4000);
 
   if (video) {
     video.addEventListener('canplaythrough', () => { vidReady = true; tryHide(); });
-    // If video already buffered before JS ran
     if (video.readyState >= 3) { vidReady = true; tryHide(); }
   } else {
     vidReady = true;
   }
 })();
-
 </script>
+
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
 <script>
-
 new Swiper(".gallery-swiper",{
-
   effect:"coverflow",
   centeredSlides:true,
   loop:true,
   grabCursor:true,
-
   slidesPerView:"auto",
-
   autoplay:{
     delay:2500,
     disableOnInteraction:false
   },
-
   coverflowEffect:{
     rotate:0,
     stretch:0,
@@ -1435,12 +1235,10 @@ new Swiper(".gallery-swiper",{
     scale:0.85,
     slideShadows:false
   },
-
   pagination:{
     el:".swiper-pagination",
     clickable:true
   }
-
 });
 </script>
 </body>
