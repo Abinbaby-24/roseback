@@ -1193,6 +1193,23 @@ function sendToWhatsApp(){
     `\n`;
   window.open(`https://wa.me/919539229843?text=${encodeURIComponent(msg)}`,'_blank');
 }
+// Force video play on mobile
+document.addEventListener('DOMContentLoaded', function() {
+  const video = document.querySelector('.hero-video');
+  if (video) {
+    video.muted = true;
+    video.playsInline = true;
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        // Autoplay failed, try on first user interaction
+        document.addEventListener('touchstart', () => {
+          video.play();
+        }, { once: true });
+      });
+    }
+  }
+});
 
 // LOADER — hides as soon as video can play (no artificial minimum wait)
 (function() {
@@ -1245,5 +1262,6 @@ new Swiper(".gallery-swiper",{
   }
 });
 </script>
+
 </body>
 </html>
